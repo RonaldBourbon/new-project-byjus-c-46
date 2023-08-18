@@ -27,7 +27,7 @@ obsBottom2 = loadImage("assets/obsBottom2.png")
 obsBottom3 = loadImage("assets/obsBottom3.png")
 
 gameOverImg= loadImage("assets/fimdejogo.png")
-restartImg = loadImage("assets/reset.png")
+restartImg = loadImage("assets/restart.png")
 
 }
 
@@ -79,12 +79,12 @@ function draw() {
 
    //fazendo o balão de ar quente pular
     if(keyDown("space")) {
-      balloon.velocityY = -6 ;
+      balloon.velocityY = -6;
       
     }
 
     //adicionando gravidade
-     balloon.velocityY = balloon.velocityY + 2;
+     balloon.velocityY = balloon.velocityY + 0.5;
 
      
     Bar();
@@ -94,8 +94,7 @@ function draw() {
     spawnObstaclesBottom();
 
 //condição para o estado END
-if(topObstaclesGroup.isTouching(balloon) || balloon.isTouching(topGround)
-|| balloon.isTouching(bottomGround) || bottomObstaclesGroup.isTouching(balloon)){
+if(topObstaclesGroup.isTouching(balloon)||bottomObstaclesGroup.isTouching(balloon)){
 
 gameState = END;
 
@@ -238,7 +237,7 @@ function Score()
         textFont("algerian");
         textSize(30);
         fill("yellow");
-        text("Pontuação: "+ score, 250, 50);
+        text("Pontuação: "+ score, 200, 50);
        
   
 }
